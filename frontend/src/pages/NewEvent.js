@@ -24,10 +24,13 @@ export async function action({ request, params }) {
   });
 
   if (!response.ok) {
-    throw new Response(JSON.stringify({ message: "Could Not Fetch Events" }), {
-      status: 500,
-    });
+    throw new Response(
+      JSON.stringify({ message: "Could Not Add A New Events" }),
+      {
+        status: 500,
+      }
+    );
   }
 
-  return redirect
+  return redirect("/events");
 }
