@@ -1,10 +1,9 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useRouteLoaderData, useParams } from "react-router-dom";
 
-import  EventItem  from "../components/EventItem.js";
+import EventItem from "../components/EventItem.js";
 
 export default function EventDetailPage() {
-  
-  const data = useLoaderData()
+  const data = useRouteLoaderData("event-detail");
 
   return (
     <>
@@ -25,7 +24,7 @@ export async function loader({ request, params }) {
         status: 500,
       }
     );
-  }else {
-    return response
+  } else {
+    return response;
   }
 }
